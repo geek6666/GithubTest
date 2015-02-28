@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.zy.frame"
+          android:versionCode="1"
+          android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-sdk android:minSdkVersion="14"/>
+    <application
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher">
+        <activity
+            android:name=".ui.MyActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!--<provider
+            android:authorities=""
+            android:name=""
+            android:exported="" //设置出口，即设置别的应用是否可以通过它访问当前应用的数据，在4.2之后默认是可以的
+            android:multiprocess="">//是否允许多线程，防止多线程操作的问题-->
+    </application>
+</manifest>
