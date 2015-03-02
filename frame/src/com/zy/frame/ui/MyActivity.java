@@ -3,32 +3,26 @@ package com.zy.frame.ui;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-import com.loopj.android.http.RequestParams;
 import com.zy.frame.R;
-import com.zy.frame.entity.City;
-import com.zy.frame.net.listener.BaseRequestCompleteListener;
-import com.zy.frame.net.parse.impl.CityParse;
-import com.zy.frame.net.request.ParamsApi;
-import com.zy.frame.net.request.RequestApi;
-import com.zy.frame.net.response.Response;
-import org.apache.http.Header;
-
-import java.util.List;
+import com.zy.frame.utils.AnimatorUtils;
 
 public class MyActivity extends Activity implements View.OnClickListener {
     /**
      * Called when the activity is first created.
      */
+    private TextView mTextView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        TextView mTextView = (TextView) findViewById(R.id.textview);
+        mTextView = (TextView) findViewById(R.id.textview);
+        Button button = (Button) findViewById(R.id.button);
 
         mTextView.setOnClickListener(this);
-
-
+        button.setOnClickListener(this);
     }
 
     @Override
@@ -49,20 +43,22 @@ public class MyActivity extends Activity implements View.OnClickListener {
 //        });
 
 
-        RequestApi requestApi = new RequestApi();
-        RequestParams params = ParamsApi.newInstance().get_city_list();
-        CityParse cityParse = new CityParse();
-        requestApi.post(this, params, cityParse, new BaseRequestCompleteListener() {
-            @Override
-            public void onRequestSuccessListener(Response response) {
-                List<City> cityList = (List<City>) response.content;
-                System.out.println(cityList);
-            }
+//        RequestApi requestApi = new RequestApi();
+//        RequestParams params = ParamsApi.newInstance().get_city_list();
+//        CityParse cityParse = new CityParse();
+//        requestApi.post(this, params, cityParse, new BaseRequestCompleteListener() {
+//            @Override
+//            public void onRequestSuccessListener(Response response) {
+//                List<City> cityList = (List<City>) response.content;
+//                System.out.println(cityList);
+//            }
+//
+//            @Override
+//            public void onRequestFailListener(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+//
+//            }
+//        });
 
-            @Override
-            public void onRequestFailListener(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-
-            }
-        });
+        AnimatorUtils.newInstance().shakeAnimator(mTextView,500);
     }
 }
