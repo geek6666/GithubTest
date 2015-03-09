@@ -2,6 +2,7 @@ package com.zy.frame.net.parse.impl;
 
 import com.google.gson.Gson;
 import com.zy.frame.entity.OptEntity;
+import com.zy.frame.net.cache.CacheEntity;
 import com.zy.frame.net.parse.base.BaseParseApi;
 
 /**
@@ -10,7 +11,7 @@ import com.zy.frame.net.parse.base.BaseParseApi;
 public class SubmitUserSendMobileCode extends BaseParseApi {
 
     @Override
-    public OptEntity parse(String jsonContent) {
+    public OptEntity parse(String jsonContent, CacheEntity cacheEntity) {
         Gson gson = new Gson();
         OptEntity baseEntity = gson.fromJson(jsonContent, OptEntity.class);
         return baseEntity;

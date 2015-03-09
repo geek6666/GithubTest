@@ -42,8 +42,8 @@ public class RequestApi implements IRequestApi {
     @Override
     public void post(Context context, String url, RequestParams requestParams, IParseApi parseUtils, CacheEntity cacheEntity, RequestCompleteListener listener) {
         //判断缓存是否需要缓存并且缓存没有过期
-        if (cacheEntity != null && cacheEntity.dao != null && cacheEntity.useCache() && !cacheEntity.dao.isExpire()) {
-            List<Object> dataList = cacheEntity.dao.query();//取出缓存数据，并返回
+        if (cacheEntity != null && cacheEntity.cacheDao != null && cacheEntity.useCache() && !cacheEntity.cacheDao.isExpire()) {
+            List<Object> dataList = cacheEntity.cacheDao.query();//取出缓存数据，并返回
             if (dataList != null && dataList.size() > 0) {
                 Response response = new Response();
                 response.error = 0;

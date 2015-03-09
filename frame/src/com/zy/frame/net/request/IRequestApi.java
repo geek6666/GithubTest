@@ -18,7 +18,7 @@ public interface IRequestApi {
      * @param url           请求url
      * @param requestParams 请求参数
      * @param parseUtils    自定义解析器
-     * @param cacheType     缓存类型
+     * @param cacheEntity     缓存类型
      * @param listener      请求接口的监听
      */
     public void post(Context context, String url, RequestParams requestParams, IParseApi parseUtils,CacheEntity cacheEntity, RequestCompleteListener listener);

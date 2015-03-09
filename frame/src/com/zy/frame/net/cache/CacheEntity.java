@@ -8,7 +8,7 @@ import android.text.TextUtils;
 public class CacheEntity {
     public CacheType cacheType;//数据的缓存方式
     public String tableName;//数据库表的名字
-    public Dao dao;//dao操作
+    public Dao cacheDao;//dao操作
 
 
     public CacheEntity(CacheType cacheType, String tableName) {
@@ -19,7 +19,7 @@ public class CacheEntity {
     public CacheEntity(CacheType cacheType, String tableName, Dao dao) {
         this.cacheType = cacheType;
         this.tableName = tableName;
-        this.dao = dao;
+        this.cacheDao = dao;
     }
 
 

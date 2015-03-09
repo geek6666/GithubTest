@@ -20,7 +20,7 @@ public abstract class BaseParseApi implements IParseApi {
             response.error = jsonObject.getInt("error");
             response.message = jsonObject.getString("message");
             String content = jsonObject.getString("content");
-            Object obj = parse(content);
+            Object obj = parse(content,cacheEntity);
             response.content = obj;
             listener.onRequestSuccessListener(response);
         } catch (Exception e) {
@@ -31,7 +31,8 @@ public abstract class BaseParseApi implements IParseApi {
     /**
      * 解析content内容
      * @param jsonContent
+     * @param cacheEntity
      * @return
      */
-    public abstract Object parse(String jsonContent);
+    public abstract Object parse(String jsonContent, CacheEntity cacheEntity);
 }

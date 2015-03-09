@@ -4,6 +4,7 @@ package com.zy.frame.net.parse.impl;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.zy.frame.entity.City;
+import com.zy.frame.net.cache.CacheEntity;
 import com.zy.frame.net.parse.base.BaseParseApi;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class CityParse extends BaseParseApi {
     @Override
-    public List<City> parse(String jsonContent) {
+    public List<City> parse(String jsonContent, CacheEntity cacheEntity) {
         Gson gson = new Gson();
         return gson.fromJson(jsonContent, new TypeToken<List<City>>() {
         }.getType());
